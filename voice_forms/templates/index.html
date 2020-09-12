@@ -1,0 +1,187 @@
+<!--
+<!DOCTYPE html>
+ <html> 
+   <head>
+	   <meta charset="utf-8">
+	   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title>Hyper Text Assasins</title>
+	     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+   </head>
+	<body>
+	   <div class="box">
+	   
+	    <h2>Voice based forms - Hyper Text Assasins</h2>
+		  <form id="myform" action="{{ url_for('submit') }}" method="POST">
+		      <div class="inputBox">
+			     <input type="text" id="name" name="name" >
+				 <label>Name</label>
+			  </div>
+			  <div class="inputBox">
+			     <input type="text" id="last" name="last" >
+				 <label>Last Name</label>
+			  </div>
+			  <div class="inputBox">
+			     <input type="text" id="fname" name="fname">
+				 <label>Father Name</label>
+			  </div> 
+			  <div class="inputBox">
+			     <input type="text" name="phone" id="phone">
+				 <label>Phone Number</label>
+			  </div>
+			  <textarea name="message" id="message" rows="10" cols="90">
+					MESSAGE..........
+			  </textarea>
+			  <input type="submit" id="submit" name="submit" value="Submit">
+		  </form>
+        
+	   </div>
+	   {{ ans }}
+	   <script src="{{ url_for('static', filename='annyang.min.js') }}"></script>
+       <script>
+        if (annyang) {
+        var commands = {
+
+          'write name *tag':function(variable){
+              let name = document.getElementById("name");
+              name.value=variable;
+          },
+          'write last name *tag':function(variable){
+              let lname = document.getElementById("last");
+              lname.value=variable;
+          },
+          'write father name *tag':function(variable){
+              let fname = document.getElementById("fname");
+              fname.value=variable;
+          },		  
+          'write email *tag':function(variable){
+              let emailadd = document.getElementById("emailadd");
+              emailadd.value=variable.split(" ").join("");
+          },
+          'write phone number *tag':function(variable){
+              let mobnum = document.getElementById("phone");
+              mobnum.value=variable;
+          },
+          'write message *tag':function(variable){
+              let mymessage = document.getElementById("message");
+              mymessage.value=variable;
+          },
+          "submit form": function(e){
+            let myform = document.getElementById("submit");  
+            myform.click();
+            
+            
+          }
+          
+
+        };
+
+        
+        annyang.addCommands(commands);
+
+       
+        annyang.start();
+      }
+    </script>
+	</body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+ <html> 
+   <head>
+	   <meta charset="utf-8">
+	   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+       <title>Hyper Text Assasins</title>
+	     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+   </head>
+	<body>
+    
+	   <div class="box">
+	   
+	    <h1>Voice based forms - Hyper Text Assassins</h1>
+		  <form id="myform" action="{{ url_for('submit') }}" method="POST">
+		      <div class="inputBox">
+			     <input type="text" id="name" name="name" >
+				 <label>Name</label>
+			  </div>
+			  <div class="inputBox">
+			     <input type="text" id="last" name="last" >
+				 <label>Last Name</label>
+			  </div>
+			  <div class="inputBox">
+			     <input type="text" id="emailadd" name="emailadd">
+				 <label>Email</label>
+			  </div> 
+			  <div class="inputBox">
+			     <input type="text" name="phone" id="phone">
+				 <label>Phone Number</label>
+			  </div>
+			  
+			  <!--<h3>Leave Message here </h3>-->
+			    
+			  <div class="messager">
+			  <label style="color:white;margin-bottom:10px;">Leave your message here</label><br><br>
+			  <textarea name="message" id="message" rows="10" cols="78">
+			                             
+			  </textarea>            
+			  </div>
+			  <input type="submit" id="submit" name="submit" value="Submit">
+		  </form>
+		   
+          <h2>{{ ans }}</h2>
+          
+	   </div>
+
+	   <script src="{{ url_for('static', filename='annyang.min.js') }}"></script>
+       <script>
+        if (annyang) {
+        var commands = {
+
+          'write name *tag':function(variable){
+              let name = document.getElementById("name");
+              name.value=variable;
+          },
+          'write last name *tag':function(variable){
+              let lname = document.getElementById("last");
+              lname.value=variable;
+          },
+          'write father name *tag':function(variable){
+              let fname = document.getElementById("fname");
+              fname.value=variable;
+          },		  
+          'write email *tag':function(variable){
+              let emailadd = document.getElementById("emailadd");
+              emailadd.value=variable.split(" ").join("").toLowerCase();
+          },
+          'write phone number *tag':function(variable){
+              let mobnum = document.getElementById("phone");
+            
+              mobnum.value=variable.split(" ").join("");
+          },
+          'write message *tag':function(variable){
+              let mymessage = document.getElementById("message");
+               mymessage.value=variable;
+              
+          },
+          "submit form": function(e){
+            let myform = document.getElementById("submit");  
+            myform.click();
+            
+            
+          }
+          
+
+        };
+
+        
+        annyang.addCommands(commands);
+
+       
+        annyang.start();
+      }
+    </script>
+	</body>
+</html>
